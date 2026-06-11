@@ -1,5 +1,6 @@
 import { useCallback, useRef, useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
+import { Analytics } from '@vercel/analytics/react';
 import Hero from './components/Hero.jsx';
 import Capabilities from './components/Capabilities.jsx';
 import Pipeline from './components/Pipeline.jsx';
@@ -53,6 +54,7 @@ export default function App() {
       <Waitlist showToast={showToast} />
       <Footer />
       <Toast toast={toast} />
+      <Analytics />
     </div>
   );
 }
