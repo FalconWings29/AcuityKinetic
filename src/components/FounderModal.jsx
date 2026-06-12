@@ -79,7 +79,7 @@ export default function FounderModal({ onClose, onJoined, showToast }) {
         <div className="mt-4 space-y-4 text-sm leading-relaxed text-muted sm:text-base">
           <p>
             I'm a rising sophomore who has played sports my whole life. Basketball, Tae Kwon Do,
-            soccer, tennis, swimming, you name it. There were so many times I'd walk off the court
+            Soccer, Tennis, Swimming, you name it. There were so many times I'd walk off the court
             or out of the gym and just think "why am I not getting better?" and have no real answer.
           </p>
           <p>
