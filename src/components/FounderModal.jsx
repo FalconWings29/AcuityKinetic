@@ -7,18 +7,14 @@ export default function FounderModal({ onClose, onJoined, showToast }) {
   const [email, setEmail] = useState('');
   const [submitting, setSubmitting] = useState(false);
 
-  // Lock scroll while open and allow Escape to close.
+  // Escape to close. Scroll lock is managed in App.jsx so it restores
+  // immediately on close rather than waiting for the exit animation to unmount.
   useEffect(() => {
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
     const onKey = (e) => {
       if (e.key === 'Escape') onClose();
     };
     window.addEventListener('keydown', onKey);
-    return () => {
-      document.body.style.overflow = prev;
-      window.removeEventListener('keydown', onKey);
-    };
+    return () => window.removeEventListener('keydown', onKey);
   }, [onClose]);
 
   const submit = async (e) => {

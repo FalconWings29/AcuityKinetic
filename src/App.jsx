@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import Hero from './components/Hero.jsx';
 import Capabilities from './components/Capabilities.jsx';
@@ -18,6 +18,10 @@ export default function App() {
   const [loading, setLoading] = useState(true);
   const [showFounder, setShowFounder] = useState(false);
   const toastTimer = useRef();
+
+  useEffect(() => {
+    document.body.style.overflow = showFounder ? 'hidden' : '';
+  }, [showFounder]);
 
   const showToast = useCallback((message, type = 'success') => {
     clearTimeout(toastTimer.current);
