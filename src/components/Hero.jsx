@@ -1,11 +1,10 @@
 import { lazy, Suspense } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowDown } from 'lucide-react';
+import { SPORTS } from '../utils/sports.js';
 
 // The 3D scene is heavy (three.js), so load it on its own chunk after paint.
 const SportsScene = lazy(() => import('./SportsScene.jsx'));
-
-const SPORTS = ['Basketball', 'Tennis', 'Weightlifting', 'Martial Arts', 'Golf'];
 
 export default function Hero({ onTryDemo, onSeeHow, onSelectSport }) {
   return (

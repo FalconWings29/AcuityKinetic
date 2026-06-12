@@ -6,7 +6,7 @@ export default function Toast({ toast }) {
     // Persistent live region: it must already exist (empty) before its content
     // changes, or screen readers won't reliably announce the toast.
     <div
-      className="pointer-events-none fixed inset-x-0 bottom-6 z-50 flex justify-center px-4"
+      className="pointer-events-none fixed inset-x-0 bottom-6 z-[120] flex justify-center px-4"
       role={assertive ? 'alert' : 'status'}
       aria-live={assertive ? 'assertive' : 'polite'}
       aria-atomic="true"

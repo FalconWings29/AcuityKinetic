@@ -22,3 +22,24 @@ export async function joinWaitlist(email) {
 
   return { ok: true };
 }
+
+const JOINED_KEY = 'ak_waitlist_joined';
+
+// Persisted flag so the founder popup never reappears once someone has signed
+// up. Closing the popup with X is intentionally NOT persisted, so it returns on
+// the next reload until they actually join.
+export function hasJoinedWaitlist() {
+  try {
+    return localStorage.getItem(JOINED_KEY) === '1';
+  } catch {
+    return false;
+  }
+}
+
+export function markWaitlistJoined() {
+  try {
+    localStorage.setItem(JOINED_KEY, '1');
+  } catch {
+    // ignore storage failures (e.g. private browsing)
+  }
+}

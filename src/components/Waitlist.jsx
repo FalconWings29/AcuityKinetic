@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { joinWaitlist } from '../utils/waitlist.js';
+import { joinWaitlist, markWaitlistJoined } from '../utils/waitlist.js';
 
 export default function Waitlist({ showToast }) {
   const [email, setEmail] = useState('');
@@ -16,6 +16,7 @@ export default function Waitlist({ showToast }) {
     setSubmitting(true);
     try {
       await joinWaitlist(trimmed);
+      markWaitlistJoined();
       setEmail('');
       showToast("You're on the list.", 'success');
     } catch {

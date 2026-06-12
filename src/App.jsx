@@ -8,19 +8,28 @@ import Waitlist from './components/Waitlist.jsx';
 import Footer from './components/Footer.jsx';
 import Toast from './components/Toast.jsx';
 import LoadingScreen from './components/LoadingScreen.jsx';
-
-const SPORTS = ['Basketball', 'Tennis', 'Weightlifting', 'Martial Arts', 'Golf'];
+import FounderModal from './components/FounderModal.jsx';
+import { hasJoinedWaitlist } from './utils/waitlist.js';
+import { SPORTS } from './utils/sports.js';
 
 export default function App() {
   const [selectedSport, setSelectedSport] = useState('Basketball');
   const [toast, setToast] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [showFounder, setShowFounder] = useState(false);
   const toastTimer = useRef();
 
   const showToast = useCallback((message, type = 'success') => {
     clearTimeout(toastTimer.current);
     setToast({ message, type, id: Date.now() });
     toastTimer.current = setTimeout(() => setToast(null), 4000);
+  }, []);
+
+  // When the intro finishes, show the founder note unless they have already
+  // signed up. Closing it with X does not persist, so it returns on reload.
+  const finishLoading = useCallback(() => {
+    setLoading(false);
+    if (!hasJoinedWaitlist()) setShowFounder(true);
   }, []);
 
   const scrollToDemo = useCallback((sport) => {
@@ -35,8 +44,19 @@ export default function App() {
   return (
     <div className="min-h-screen bg-ink font-sans text-white">
       <AnimatePresence>
-        {loading && <LoadingScreen onDone={() => setLoading(false)} />}
+        {loading && <LoadingScreen onDone={finishLoading} />}
       </AnimatePresence>
+
+      <AnimatePresence>
+        {showFounder && (
+          <FounderModal
+            onClose={() => setShowFounder(false)}
+            onJoined={() => setShowFounder(false)}
+            showToast={showToast}
+          />
+        )}
+      </AnimatePresence>
+
       <Hero
         onTryDemo={() => scrollToId('demo')}
         onSeeHow={() => scrollToId('how-it-works')}
