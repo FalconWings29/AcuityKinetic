@@ -78,24 +78,24 @@ export default function FounderModal({ onClose, onJoined, showToast }) {
 
         <div className="mt-4 space-y-4 text-sm leading-relaxed text-muted sm:text-base">
           <p>
-            I'm a rising sophomore who has played sports my entire life. Basketball, Tae Kwon Do,
-            you name it. I know how frustrating it is to put in the hours and still feel stuck, not
-            knowing what you're doing wrong.
+            I'm a rising sophomore who has played sports my whole life. Basketball, Tae Kwon Do,
+            soccer, tennis, swimming, you name it. There were so many times I'd walk off the court
+            or out of the gym and just think "why am I not getting better?" and have no real answer.
           </p>
           <p>
-            That's why I built Acuity Kinetic. I wanted a coach that's always there. One that
-            watches you practice and tells you exactly what to fix, in real time.
+            That's why I built Acuity Kinetic. I wanted something that actually watches you and
+            tells you what's wrong, right when it matters.
           </p>
           <p>
-            This is still early and it's just me building this. I'd love for you to be part of it
-            from the start.
+            It's just me building this right now and it's still early. I'd love for you to be part
+            of it from the start.
           </p>
         </div>
 
         <div className="mt-5 rounded-card border border-accent/30 bg-accent/5 p-4 text-sm leading-relaxed text-white">
           Sign up for the waitlist today and I'll give you{' '}
           <span className="text-accent">1 month of free Pro access</span> when we officially launch.
-          No credit card. No catch.
+          No credit card necessary.
         </div>
 
         <form onSubmit={submit} className="mt-5 flex flex-col gap-3 sm:flex-row">
@@ -123,7 +123,7 @@ export default function FounderModal({ onClose, onJoined, showToast }) {
           </button>
         </form>
 
-        <p className="mt-6 text-sm text-muted">Azaan, Founder of Acuity Kinetic</p>
+        <p className="mt-6 text-sm text-muted">~Azaan, Founder of Acuity Kinetic</p>
       </motion.div>
     </motion.div>
   );
