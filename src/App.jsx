@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
+import Nav from './components/Nav.jsx';
 import Hero from './components/Hero.jsx';
+import Marquee from './components/Marquee.jsx';
 import Capabilities from './components/Capabilities.jsx';
 import Pipeline from './components/Pipeline.jsx';
 import Demo from './components/Demo.jsx';
@@ -19,6 +21,7 @@ export default function App() {
   const [showFounder, setShowFounder] = useState(false);
   const toastTimer = useRef();
 
+  // Lock scroll while the founder modal is open; restores the moment it closes.
   useEffect(() => {
     document.body.style.overflow = showFounder ? 'hidden' : '';
   }, [showFounder]);
@@ -36,13 +39,17 @@ export default function App() {
     if (!hasJoinedWaitlist()) setShowFounder(true);
   }, []);
 
+  const navigate = useCallback((id) => {
+    if (id === 'top') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  }, []);
+
   const scrollToDemo = useCallback((sport) => {
     if (sport) setSelectedSport(sport);
     document.getElementById('demo')?.scrollIntoView({ behavior: 'smooth' });
-  }, []);
-
-  const scrollToId = useCallback((id) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   }, []);
 
   return (
@@ -61,21 +68,27 @@ export default function App() {
         )}
       </AnimatePresence>
 
-      <Hero
-        onTryDemo={() => scrollToId('demo')}
-        onSeeHow={() => scrollToId('how-it-works')}
-        onSelectSport={scrollToDemo}
-      />
-      <Demo
-        sports={SPORTS}
-        selectedSport={selectedSport}
-        onSportChange={setSelectedSport}
-        showToast={showToast}
-      />
-      <Capabilities />
-      <Pipeline />
-      <Waitlist showToast={showToast} />
-      <Footer />
+      <Nav onNavigate={navigate} onJoin={() => navigate('waitlist')} />
+
+      <main>
+        <Hero
+          onTryDemo={() => navigate('demo')}
+          onSeeHow={() => navigate('how-it-works')}
+          onSelectSport={scrollToDemo}
+        />
+        <Marquee />
+        <Demo
+          sports={SPORTS}
+          selectedSport={selectedSport}
+          onSportChange={setSelectedSport}
+          showToast={showToast}
+        />
+        <Capabilities />
+        <Pipeline />
+        <Waitlist showToast={showToast} />
+      </main>
+
+      <Footer onNavigate={navigate} />
       <Toast toast={toast} />
     </div>
   );

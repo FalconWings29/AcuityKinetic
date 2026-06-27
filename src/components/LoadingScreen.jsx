@@ -47,14 +47,14 @@ export default function LoadingScreen({ onDone }) {
         transition={{ duration: 1, ease: 'easeOut' }}
         className="flex flex-col items-center"
       >
-        <span className="font-display text-2xl font-bold tracking-tight sm:text-3xl">
+        <span className="font-display text-4xl font-bold tracking-tight text-bone sm:text-5xl">
           Acuity <span className="text-accent">Kinetic</span>
         </span>
-        <p className="mt-3 text-xs uppercase tracking-[0.28em] text-muted sm:text-sm">
+        <p className="mt-4 text-xs uppercase tracking-[0.3em] text-muted sm:text-sm">
           For athletes, by an athlete
         </p>
 
-        <div className="mt-9 h-[3px] w-56 overflow-hidden rounded-full bg-line sm:w-72">
+        <div className="mt-10 h-[3px] w-56 overflow-hidden rounded-full bg-line sm:w-72">
           <div
             className="h-full rounded-full bg-accent transition-[width] duration-100 ease-linear"
             style={{ width: `${progress}%` }}

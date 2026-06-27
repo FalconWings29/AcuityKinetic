@@ -68,7 +68,7 @@ export default function FounderModal({ onClose, onJoined, showToast }) {
         <p className="text-xs font-medium uppercase tracking-[0.2em] text-accent">
           A note from the founder
         </p>
-        <h2 className="mt-3 font-display text-2xl font-bold tracking-tight sm:text-3xl">
+        <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-bone sm:text-4xl">
           Hey, I'm Azaan
         </h2>
 

@@ -25,61 +25,49 @@ const ITEMS = [
 export default function Capabilities() {
   return (
     <section id="how-it-works" className="border-t border-line bg-ink">
-      <div className="mx-auto max-w-6xl px-6 py-20 sm:py-28">
+      <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-28">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="mb-16 max-w-xl sm:mb-24"
+          className="mb-12 max-w-2xl sm:mb-16"
         >
-          <p className="mb-3 text-xs font-medium uppercase tracking-[0.2em] text-muted">
+          <p className="mb-4 text-xs font-medium uppercase tracking-[0.22em] text-muted">
             What it does
           </p>
-          <h2 className="font-display text-3xl font-bold tracking-tight sm:text-5xl">
+          <h2 className="font-display text-4xl font-bold leading-[0.95] tracking-tight text-bone sm:text-6xl">
             Three parts of every session.
           </h2>
         </motion.div>
 
-        <div className="flex flex-col gap-16 sm:gap-28">
-          {ITEMS.map((item, i) => {
-            const flip = i % 2 === 1;
-            return (
-              <div key={item.n} className="grid items-center gap-4 lg:grid-cols-2 lg:gap-12">
-                <motion.div
-                  initial={{ opacity: 0, x: flip ? 50 : -50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: '-90px' }}
-                  transition={{ duration: 0.7, ease: 'easeOut' }}
-                  className={`flex justify-center ${flip ? 'lg:order-2 lg:justify-end' : 'lg:justify-start'}`}
-                >
-                  <span
-                    className="font-display text-[6rem] font-extrabold leading-none text-transparent sm:text-[11rem]"
-                    style={{ WebkitTextStroke: '1.5px #262626' }}
-                    aria-hidden="true"
-                  >
-                    {item.n}
-                  </span>
-                </motion.div>
+        <div className="flex flex-col">
+          {ITEMS.map((item) => (
+            <motion.div
+              key={item.n}
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-90px' }}
+              transition={{ duration: 0.6, ease: 'easeOut' }}
+              className="grid gap-5 border-t border-line py-10 sm:py-14 lg:grid-cols-[12rem_1fr] lg:gap-14"
+            >
+              <span
+                className="font-display text-7xl font-bold leading-none text-transparent sm:text-8xl"
+                style={{ WebkitTextStroke: '1.5px #2A2A2A' }}
+                aria-hidden="true"
+              >
+                {item.n}
+              </span>
 
-                <motion.div
-                  initial={{ opacity: 0, y: 32 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: '-90px' }}
-                  transition={{ duration: 0.6, ease: 'easeOut', delay: 0.08 }}
-                  className={`rounded-card border border-line bg-card p-8 sm:p-10 ${
-                    flip ? 'lg:order-1' : ''
-                  }`}
-                >
-                  <item.icon className="h-7 w-7 text-accent" strokeWidth={1.75} />
-                  <h3 className="mt-5 font-display text-2xl font-bold tracking-tight sm:text-3xl">
-                    {item.title}
-                  </h3>
-                  <p className="mt-4 leading-relaxed text-muted">{item.body}</p>
-                </motion.div>
+              <div className="max-w-2xl">
+                <item.icon className="h-7 w-7 text-accent" strokeWidth={1.75} />
+                <h3 className="mt-5 font-display text-2xl font-bold tracking-tight text-bone sm:text-3xl">
+                  {item.title}
+                </h3>
+                <p className="mt-4 leading-relaxed text-muted sm:text-lg">{item.body}</p>
               </div>
-            );
-          })}
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

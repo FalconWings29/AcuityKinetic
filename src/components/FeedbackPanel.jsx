@@ -14,7 +14,7 @@ export default function FeedbackPanel({
       <div className="flex items-center justify-between gap-3 border-b border-line px-5 py-4">
         <div className="flex items-center gap-2">
           <Activity className="h-4 w-4 text-accent" strokeWidth={2} />
-          <h3 className="font-display text-sm font-semibold">Live Feedback</h3>
+          <h3 className="text-sm font-semibold uppercase tracking-wide">Live Feedback</h3>
         </div>
         <div className="flex items-center gap-2">
           <button

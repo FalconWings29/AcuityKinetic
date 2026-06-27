@@ -107,7 +107,7 @@ export default function Demo({ sports, selectedSport, onSportChange, showToast }
       cancelled = true;
       clearTimeout(timer);
     };
-  }, [isCoaching, cameraReady, addFeedback, showToast]);
+  }, [isCoaching, cameraReady, addFeedback, showToast]); 
 
   const toggleCoaching = () => {
     if (isCoaching) {
@@ -139,12 +139,15 @@ export default function Demo({ sports, selectedSport, onSportChange, showToast }
 
   return (
     <section id="demo" className="border-t border-line bg-ink">
-      <div className="mx-auto max-w-6xl px-6 py-16 sm:py-20">
+      <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-28">
         <div className="mb-10 max-w-3xl">
-          <h2 className="font-display text-3xl font-bold tracking-tight sm:text-4xl">
-            Try it yourself
+          <p className="mb-4 text-xs font-medium uppercase tracking-[0.22em] text-muted">
+            Live demo
+          </p>
+          <h2 className="font-display text-4xl font-bold leading-[0.95] tracking-tight text-bone sm:text-5xl">
+            Try it yourself.
           </h2>
-          <p className="mt-3 text-muted">
+          <p className="mt-4 text-muted sm:text-lg">
             Three steps and you are training. Cues show up within a few seconds.
           </p>
           <ol className="mt-6 flex flex-wrap items-center gap-2 text-sm">

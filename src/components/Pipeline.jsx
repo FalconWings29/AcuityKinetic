@@ -23,13 +23,13 @@ const STEPS = [
   {
     icon: MessageSquare,
     title: 'Get one clear cue',
-    tag: '≤ 15 words',
+    tag: '15 words or fewer',
     body: 'The model replies with one short instruction rather than a paragraph. Identical back-to-back cues are discarded, so the feed only updates when something genuinely changes.',
   },
   {
     icon: Volume2,
     title: 'Deliver the feedback',
-    tag: 'spoken + logged',
+    tag: 'spoken and logged',
     body: 'The cue lands at the top of your feed with a timestamp and is read aloud through the browser, unless you have muted it, so you can keep your eyes on the work.',
   },
 ];
@@ -37,7 +37,7 @@ const STEPS = [
 export default function Pipeline() {
   return (
     <section id="pipeline" className="border-t border-line bg-ink">
-      <div className="mx-auto max-w-4xl px-6 py-20 sm:py-28">
+      <div className="mx-auto max-w-4xl px-5 py-20 sm:px-8 sm:py-28">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -45,13 +45,13 @@ export default function Pipeline() {
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="mb-14 max-w-xl"
         >
-          <p className="mb-3 text-xs font-medium uppercase tracking-[0.2em] text-muted">
+          <p className="mb-4 text-xs font-medium uppercase tracking-[0.22em] text-muted">
             Under the hood
           </p>
-          <h2 className="font-display text-3xl font-bold tracking-tight sm:text-5xl">
+          <h2 className="font-display text-4xl font-bold leading-[0.95] tracking-tight text-bone sm:text-6xl">
             What happens on every frame.
           </h2>
-          <p className="mt-4 leading-relaxed text-muted">
+          <p className="mt-5 leading-relaxed text-muted sm:text-lg">
             The same loop runs a few times a minute while you train. Each pass takes one frame from
             capture to a spoken cue.
           </p>
@@ -70,13 +70,13 @@ export default function Pipeline() {
               transition={{ duration: 0.5, ease: 'easeOut', delay: i * 0.06 }}
               className="relative flex gap-5"
             >
-              <div className="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-accent/40 bg-ink text-sm font-semibold text-accent">
+              <div className="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-accent/40 bg-ink font-display text-base font-bold text-accent">
                 {i + 1}
               </div>
-              <div className="pt-1">
+              <div className="pt-1.5">
                 <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
                   <step.icon className="h-4 w-4 text-accent" strokeWidth={2} />
-                  <h3 className="font-display text-lg font-semibold">{step.title}</h3>
+                  <h3 className="text-lg font-semibold text-white">{step.title}</h3>
                   <span className="rounded-btn border border-line px-2 py-0.5 text-[11px] font-medium text-muted">
                     {step.tag}
                   </span>
