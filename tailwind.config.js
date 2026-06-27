@@ -13,9 +13,8 @@ export default {
         line: '#222222', // borders and hairlines
       },
       fontFamily: {
-        display: ['Ortica', 'ui-sans-serif', 'sans-serif'],
-        angular: ['"Ortica Angular"', 'Ortica', 'sans-serif'],
-        sans: ['Geist', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        display: ['Neuton', 'ui-serif', 'Georgia', 'serif'],
+        sans: ['Neuton', 'ui-serif', 'Georgia', 'serif'],
       },
       borderRadius: {
         card: '10px',
